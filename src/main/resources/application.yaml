@@ -1,0 +1,45 @@
+#configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/EventFlowerManagement"
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:  posteventblooms@gmail.com
+    password: kevqtiwstlifqxcs
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 23148986973-0btj17vsb3gflkboj6h73pbs3ejjnhq6.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
+            redirect-uri: "http://localhost:8080/identity/auth/google/login" # Matches your redirect URI
+            authorization-grant-type: authorization_code
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+jwt:
+  signerKey: "i4cybrMyoNxh6mETxxxRx/9tLhs3q2osKSXEL5fQHaFQJGKQfkFsPAYYDpf7L+6v"
+
